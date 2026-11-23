@@ -1,0 +1,9 @@
+node_modules
+dist
+.DS_Store
+
+# Nicht veröffentlichen (Prototypen mit Namen, interne Konzepte)
+archive/
+docs/
+Weihnachtskarte QR*Briefing*.md
+.claude/

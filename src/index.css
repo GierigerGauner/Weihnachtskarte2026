@@ -1,0 +1,103 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+@import '@fontsource/tinos/400.css';
+@import '@fontsource/kaushan-script/400.css';
+@import './core/theme/tokens.css';
+
+/* Tailwind-Theme referenziert nur die Tokens, es gibt keine zweite Farbliste. */
+@theme inline {
+  --color-navy: var(--navy);
+  --color-sky: var(--sky);
+  --color-red: var(--red);
+  --color-red-bright: var(--red-bright);
+  --color-bordeaux: var(--bordeaux);
+  --color-maroon: var(--maroon);
+  --color-mauve: var(--mauve);
+  --color-lime: var(--lime-1);
+  --color-lime-2: var(--lime-2);
+  --color-paper: var(--paper);
+  --color-ink-muted: var(--ink-muted);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-serif);
+  --radius-card: var(--r-card);
+  --radius-sheet: var(--r-sheet);
+  --radius-field: var(--r-field);
+}
+
+@layer base {
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 24px;
+  color: var(--ink);
+  background: var(--desk);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+button { font: inherit; color: inherit; cursor: pointer; }
+.tabular { font-variant-numeric: tabular-nums; }
+.font-script { font-family: var(--font-display); font-weight: 400; }
+
+/* Sichtbarer Fokus, auf Hell und Dunkel */
+:focus-visible { outline: 3px solid var(--white); outline-offset: 2px; box-shadow: 0 0 0 5px var(--navy); border-radius: 12px; }
+
+}
+
+@layer components {
+/* Display-Stile (Script) */
+.display-xl { font-family: var(--font-display); font-size: 44px; line-height: 48px; }
+.h1 { font-family: var(--font-display); font-size: 32px; line-height: 38px; }
+.h2 { font-family: var(--font-display); font-size: 24px; line-height: 30px; }
+.num-xxl { font-size: 64px; line-height: 64px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.num-l { font-size: 40px; line-height: 44px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.body-s { font-size: 15px; line-height: 22px; }
+.label { font-size: 14px; line-height: 20px; font-weight: 600; }
+.caption { font-size: 12px; line-height: 16px; }
+
+.bg-night { background: var(--grad-night); color: var(--on-dark); }
+.bg-red-grad { background: var(--grad-red); }
+.bg-lime-grad { background: var(--grad-lime); }
+.shadow-light { box-shadow: var(--shadow-light); }
+.shadow-dark { box-shadow: var(--shadow-dark); }
+
+/* Scrollbar im Phone-Frame unauffällig */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+
+/* Slider (Spec Abschnitt 10): Track 8 px, gefüllt Rotverlauf, Thumb als Lime-Kugel mit Navy-Rand */
+.range { -webkit-appearance: none; appearance: none; height: 48px; background: transparent; cursor: pointer; }
+.range::-webkit-slider-runnable-track {
+  height: 8px; border-radius: 999px;
+  background: linear-gradient(90deg, var(--red-deep-1), var(--red-deep-2)) 0 / var(--fill, 0%) 100% no-repeat, rgb(0 52 88 / .15);
+}
+.range::-moz-range-track { height: 8px; border-radius: 999px; background: rgb(0 52 88 / .15); }
+.range::-moz-range-progress { height: 8px; border-radius: 999px; background: var(--red); }
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none; width: 32px; height: 32px; margin-top: -12px; border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, #fff9, transparent 45%), var(--grad-lime);
+  border: 3px solid var(--navy); box-shadow: var(--shadow-ball); transition: transform .12s;
+}
+.range::-moz-range-thumb {
+  width: 26px; height: 26px; border-radius: 50%; background: var(--lime-1); border: 3px solid var(--navy); box-shadow: var(--shadow-ball);
+}
+.range:active::-webkit-slider-thumb { transform: scale(1.1); }
+.range-dark::-webkit-slider-runnable-track {
+  background: linear-gradient(90deg, var(--lime-1), var(--lime-2)) 0 / var(--fill, 0%) 100% no-repeat, rgb(255 255 255 / .25);
+}
+.range-dark::-webkit-slider-thumb { border-color: var(--white); }
+}
+
+@keyframes twinkle { 0%, 100% { opacity: .6; } 50% { opacity: 1; } }
+@keyframes fall {
+  from { transform: translate3d(0, -20px, 0); }
+  to { transform: translate3d(var(--drift, 12px), 110vh, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; }
+}
+

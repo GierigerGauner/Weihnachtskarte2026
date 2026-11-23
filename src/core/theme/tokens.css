@@ -1,0 +1,51 @@
+:root {
+  /* Farben (Styleguide Abschnitt 10) */
+  --navy: #003458;        --sky: #0095D6;
+  --red: #BC0000;         --red-bright: #C50222;
+  --red-deep-1: #BF1113;  --red-deep-2: #910000;
+  --bordeaux: #7F010C;    --maroon: #3B0407;   --mauve: #A26E84;
+  --lime-1: #D5DA0F;      --lime-2: #BFC501;
+  --paper: #F8F8F8;       --white: #FFFFFF;
+  --ink: var(--navy);     --ink-muted: #456580;
+  --desk: #E9EEF2; /* Fläche neben dem Phone-Frame am Desktop */
+  --on-dark: #FFFFFF;     --on-dark-muted: rgb(255 255 255 / .7);
+
+  /* Verläufe */
+  --grad-night: linear-gradient(125deg, #0095D6 0%, #00355B 48%, #00355B 100%);
+  --grad-red:   linear-gradient(160deg, #BF1113, #910000);
+  --grad-lime:  linear-gradient(145deg, #D5DA0F, #BFC501);
+
+  /* Schrift */
+  --font-display: 'Kaushan Script', 'Bello Pro', cursive;
+  --font-body:    'Inter Variable', system-ui, sans-serif;
+  --font-serif:   'Tinos', 'Times New Roman', serif;
+
+  /* Form */
+  --r-card: 24px; --r-sheet: 28px; --r-field: 16px; --r-pill: 999px;
+  --page-x: 20px; --content-max: 430px;
+  --shadow-light: 0 8px 24px rgb(0 52 88 / .16);
+  --shadow-dark:  0 12px 32px rgb(0 20 40 / .35);
+  --shadow-ball:  0 14px 28px rgb(0 0 0 / .25);
+
+  /* Bewegung */
+  --ease-ui: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --t-ui: 220ms;  --t-hero: 900ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --t-ui: 1ms; --t-hero: 1ms; }
+}
+
+/* Teaser-Szene (Weihnachtsbaum, Leuchten hinter dem Geschenk) */
+:root {
+  --tree-1: rgb(0 28 52 / .38);
+  --tree-2: rgb(0 28 52 / .5);
+  --tree-3: rgb(0 28 52 / .62);
+  --tree-4: rgb(0 28 52 / .74);
+  --glow: radial-gradient(circle, rgb(213 218 15 / .55) 0%, rgb(255 255 255 / .2) 36%, transparent 68%);
+  --rays: repeating-conic-gradient(from 0deg, rgb(255 255 255 / .24) 0deg 7deg, transparent 7deg 22deg);
+}
+
+:root {
+  --flash: radial-gradient(circle at 50% 62%, var(--white) 0%, rgb(255 255 255 / .92) 32%, rgb(213 218 15 / .45) 62%, transparent 100%);
+}
