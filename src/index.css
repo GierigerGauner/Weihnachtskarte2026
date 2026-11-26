@@ -38,6 +38,11 @@ body {
   -webkit-tap-highlight-color: transparent;
   overscroll-behavior: none;
 }
+/* Handy: Die App füllt den ganzen Bildschirm. Safari färbt Statusleiste und untere Leiste nach der Seitenfläche,
+   die helle Desktop-Fläche würde dort als weißer Streifen erscheinen. */
+@media (max-width: 639px) {
+  html, body { background: var(--navy); }
+}
 button { font: inherit; color: inherit; cursor: pointer; }
 .tabular { font-variant-numeric: tabular-nums; }
 .font-script { font-family: var(--font-display); font-weight: 400; }
